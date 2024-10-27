@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_single_quotes
 class AppImages {
   AppImages._();
-
+  
   /// Assets for images800pxRichardCoeur
   /// assets/images/800px-Richard_coeur.png
-  static const String images800pxRichardCoeur =
-      "assets/images/800px-Richard_coeur.png";
+  static const String images800pxRichardCoeur = "assets/images/800px-Richard_coeur.png";
 
   /// Assets for imagesBattleOfJaffa
   /// assets/images/Battle_of_Jaffa.png
@@ -13,8 +12,7 @@ class AppImages {
 
   /// Assets for imagesBattleOfMegiddo
   /// assets/images/Battle-of-Megiddo.png
-  static const String imagesBattleOfMegiddo =
-      "assets/images/Battle-of-Megiddo.png";
+  static const String imagesBattleOfMegiddo = "assets/images/Battle-of-Megiddo.png";
 
   /// Assets for imagesDalel
   /// assets/images/Dalel.png
@@ -40,10 +38,13 @@ class AppImages {
   /// assets/images/mini_status.png
   static const String imagesMiniStatus = "assets/images/mini_status.png";
 
+  /// Assets for imagesMosque
+  /// assets/images/mosque.png
+  static const String imagesMosque = "assets/images/mosque.png";
+
   /// Assets for imagesNapoleonBonapart
   /// assets/images/Napoleon_Bonapart.png
-  static const String imagesNapoleonBonapart =
-      "assets/images/Napoleon_Bonapart.png";
+  static const String imagesNapoleonBonapart = "assets/images/Napoleon_Bonapart.png";
 
   /// Assets for imagesOldBooks
   /// assets/images/old_books.png
@@ -71,8 +72,7 @@ class AppImages {
 
   /// Assets for imagesPortraitOfTheQianlong
   /// assets/images/Portrait_of_the_Qianlong.png
-  static const String imagesPortraitOfTheQianlong =
-      "assets/images/Portrait_of_the_Qianlong.png";
+  static const String imagesPortraitOfTheQianlong = "assets/images/Portrait_of_the_Qianlong.png";
 
   /// Assets for imagesPosters
   /// assets/images/posters.png
@@ -82,14 +82,17 @@ class AppImages {
   /// assets/images/Pyramid.png
   static const String imagesPyramid = "assets/images/Pyramid.png";
 
+  /// Assets for imagesPyramids
+  /// assets/images/pyramids.svg
+  static const String imagesPyramids = "assets/images/pyramids.svg";
+
   /// Assets for imagesRebebubic
   /// assets/images/rebebubic.png
   static const String imagesRebebubic = "assets/images/rebebubic.png";
 
   /// Assets for imagesRichardCoeurDeLion
   /// assets/images/Richard_coeur_de_lion.png
-  static const String imagesRichardCoeurDeLion =
-      "assets/images/Richard_coeur_de_lion.png";
+  static const String imagesRichardCoeurDeLion = "assets/images/Richard_coeur_de_lion.png";
 
   /// Assets for imagesRing
   /// assets/images/ring.png
@@ -115,3 +118,4 @@ class AppImages {
   /// assets/images/Tao_te_ching.png
   static const String imagesTaoTeChing = "assets/images/Tao_te_ching.png";
 }
+
