@@ -3,13 +3,13 @@ import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
 import 'package:dalel/features/auth/ui/widgets/appBar_section.dart';
-import 'package:dalel/features/auth/ui/widgets/custom_form.dart';
+import 'package:dalel/features/auth/ui/widgets/custom_log_in_form.dart';
 import 'package:dalel/features/auth/ui/widgets/dont_have_an_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignInView extends StatelessWidget {
+  const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,8 @@ class LoginView extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(child: verticalSpacing(20.h)),
-            const SliverToBoxAdapter(
-              child: CustomForm(),
-            ),
-            SliverToBoxAdapter(child: verticalSpacing(10)),
-            SliverToBoxAdapter(child: verticalSpacing(60)),
+            const SliverToBoxAdapter(child: CustomLogInForm()),
+            SliverToBoxAdapter(child: verticalSpacing(30)),
             SliverToBoxAdapter(
               child: CustomTextButton(label: 'Log In', onPressed: () {}),
             ),
@@ -49,7 +46,8 @@ class LoginView extends StatelessWidget {
                   text2: 'Sign Up',
                 ),
               ),
-            )
+            ),
+            SliverToBoxAdapter(child: verticalSpacing(10)),
           ],
         ),
       ),

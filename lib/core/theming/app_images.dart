@@ -42,6 +42,10 @@ class AppImages {
   /// assets/images/mosque.png
   static const String imagesMosque = "assets/images/mosque.png";
 
+  /// Assets for imagesMosque2
+  /// assets/images/mosque2.svg
+  static const String imagesMosque2 = "assets/images/mosque2.svg";
+
   /// Assets for imagesNapoleonBonapart
   /// assets/images/Napoleon_Bonapart.png
   static const String imagesNapoleonBonapart = "assets/images/Napoleon_Bonapart.png";
@@ -82,9 +86,9 @@ class AppImages {
   /// assets/images/Pyramid.png
   static const String imagesPyramid = "assets/images/Pyramid.png";
 
-  /// Assets for imagesPyramids
-  /// assets/images/pyramids.svg
-  static const String imagesPyramids = "assets/images/pyramids.svg";
+  /// Assets for imagesPyramidss
+  /// assets/images/pyramidss.svg
+  static const String imagesPyramidss = "assets/images/pyramidss.svg";
 
   /// Assets for imagesRebebubic
   /// assets/images/rebebubic.png

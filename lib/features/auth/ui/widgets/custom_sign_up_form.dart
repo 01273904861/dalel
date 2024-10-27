@@ -3,14 +3,14 @@ import 'package:dalel/features/auth/ui/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomForm extends StatefulWidget {
-  const CustomForm({super.key});
+class CustomSignUpForm extends StatefulWidget {
+  const CustomSignUpForm({super.key});
 
   @override
-  State<CustomForm> createState() => _CustomFormState();
+  State<CustomSignUpForm> createState() => _CustomSignUpFormState();
 }
 
-class _CustomFormState extends State<CustomForm> {
+class _CustomSignUpFormState extends State<CustomSignUpForm> {
   bool obsecureText = false;
 
   @override
