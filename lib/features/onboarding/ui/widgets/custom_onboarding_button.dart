@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOnBoardingTextButton extends StatelessWidget {
-  CustomOnBoardingTextButton(
-    this.index, {
+ const CustomOnBoardingTextButton(
+   {
+      this.index,
     super.key,
     required this.pageController,
   });
   final PageController pageController;
-  int index = 0;
+ final int? index ;
   @override
   Widget build(BuildContext context) {
     return TextButton(

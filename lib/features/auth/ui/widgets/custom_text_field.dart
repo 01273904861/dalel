@@ -37,11 +37,11 @@ class CustomTextField extends StatelessWidget {
 }
 
 class CustomPassowrdTextField extends StatelessWidget {
-   CustomPassowrdTextField({
+  const CustomPassowrdTextField({
     super.key,
     required this.labelText,
     required this.suffixIcon,
-     this.obsecureText,
+    this.obsecureText,
     this.borderRadius,
     this.inputFontSize,
     this.borderColor,
@@ -51,7 +51,7 @@ class CustomPassowrdTextField extends StatelessWidget {
   final double? inputFontSize;
   final Color? borderColor;
   final Widget suffixIcon;
-   bool? obsecureText;
+  final bool? obsecureText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
