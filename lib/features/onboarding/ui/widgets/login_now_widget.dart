@@ -3,8 +3,8 @@ import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginNowWidget extends StatelessWidget {
-  const LoginNowWidget({
+class LoginNowTextWidget extends StatelessWidget {
+  const LoginNowTextWidget({
     super.key,
   });
 

@@ -28,9 +28,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(
-                child: verticalSpacing(30),
-              ),
+              SliverToBoxAdapter(child: verticalSpacing(30)),
               SliverToBoxAdapter(
                 child: Text(
                   'skip',
@@ -49,24 +47,20 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               SliverToBoxAdapter(
                 child: CustomOnBoardingTextButton(
-                  index,
+                  index: index,
                   pageController: pageController,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: verticalSpacing(10),
-              ),
+              SliverToBoxAdapter(child: verticalSpacing(10)),
               index == onBoardingModels.length - 1
                   ? SliverToBoxAdapter(
                       child: Column(
                       children: [
-                        const LoginNowWidget(),
+                        const LoginNowTextWidget(),
                         verticalSpacing(10),
                       ],
                     ))
-                  : SliverToBoxAdapter(
-                      child: verticalSpacing(10),
-                    ),
+                  : SliverToBoxAdapter(child: verticalSpacing(10)),
             ],
           ),
         ),
