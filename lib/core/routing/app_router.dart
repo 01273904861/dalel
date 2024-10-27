@@ -1,6 +1,6 @@
 import 'package:dalel/core/routing/routes.dart';
-import 'package:dalel/features/auth/ui/views/login_view.dart';
-import 'package:dalel/features/auth/ui/views/register_view.dart';
+import 'package:dalel/features/auth/ui/views/sign_in_view.dart';
+import 'package:dalel/features/auth/ui/views/sign_up_view.dart';
 import 'package:dalel/features/home/home_view.dart';
 import 'package:dalel/features/onboarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class AppRouter {
         });
       case Routes.logIn:
         return MaterialPageRoute(builder: (context) {
-          return const LoginView();
+          return const SignInView();
         });
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (context) {
@@ -22,7 +22,7 @@ class AppRouter {
         });
       case Routes.register:
         return MaterialPageRoute(builder: (context) {
-          return const RegisterView();
+          return const SignUpView();
         });
       default:
         return MaterialPageRoute(builder: (context) {
