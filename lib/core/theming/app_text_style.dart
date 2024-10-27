@@ -14,10 +14,28 @@ class AppTextStyle {
     fontFamily: 'Poppins',
     fontSize: 16.sp,
   );
-  static TextStyle popins500Black15 = TextStyle(
+  static TextStyle popins500White15 = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w500,
     fontFamily: 'Poppins',
     fontSize: 15.sp,
+  );
+  static TextStyle ppoins600Black28 = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+    fontSize: 28.sp,
+  );
+  static TextStyle ppoins500BGrey17 = TextStyle(
+    color: Colors.grey,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Poppins',
+    fontSize: 17.sp,
+  );
+    static TextStyle ppoins400BGrey12 = TextStyle(
+    color: Colors.grey,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Poppins',
+    fontSize: 12.sp,
   );
 }

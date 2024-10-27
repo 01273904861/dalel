@@ -5,8 +5,8 @@ import 'package:dalel/features/onboarding/data/models/onboarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextButton extends StatelessWidget {
-  CustomTextButton(
+class CustomOnBoardingTextButton extends StatelessWidget {
+  CustomOnBoardingTextButton(
     this.index, {
     super.key,
     required this.pageController,
@@ -37,11 +37,11 @@ class CustomTextButton extends StatelessWidget {
         child: index == onBoardingModels.length - 1
             ? Text(
                 'create a ccount ',
-                style: AppTextStyle.popins500Black15,
+                style: AppTextStyle.popins500White15,
               )
             : Text(
                 'next',
-                style: AppTextStyle.popins500Black15,
+                style: AppTextStyle.popins500White15,
               ));
   }
 }
