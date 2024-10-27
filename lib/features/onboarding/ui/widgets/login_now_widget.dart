@@ -1,4 +1,3 @@
-
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:flutter/material.dart';
