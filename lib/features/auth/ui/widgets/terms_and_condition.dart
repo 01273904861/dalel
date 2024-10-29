@@ -1,4 +1,3 @@
-import 'package:dalel/core/routing/app_router.dart';
 import 'package:dalel/core/theming/app_colors.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
@@ -31,19 +30,22 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
               onChanged: (val) {
                 auth.termsAndConditionValue = val!;
                 auth.termsAndConditionChanges();
-                setState(() {
-                  
-                });
+                setState(() {});
               }),
-          Text.rich(TextSpan(children: [
+          Text.rich(
             TextSpan(
-                text: 'I have agree to our ',
-                style: AppTextStyle.popins400Black24.copyWith(fontSize: 13)),
-            TextSpan(
-                text: 'Terms and Condition',
-                style: AppTextStyle.popins400Black24.copyWith(
-                    fontSize: 14, decoration: TextDecoration.underline))
-          ]))
+              children: [
+                TextSpan(
+                    text: 'I have agree to our ',
+                    style:
+                        AppTextStyle.popins400Black24.copyWith(fontSize: 13)),
+                TextSpan(
+                    text: 'Terms and Condition',
+                    style: AppTextStyle.popins400Black24.copyWith(
+                        fontSize: 14, decoration: TextDecoration.underline))
+              ],
+            ),
+          ),
         ],
       ),
     );

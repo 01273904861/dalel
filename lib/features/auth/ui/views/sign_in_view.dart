@@ -1,6 +1,5 @@
 import 'package:dalel/core/functions/show_snack_bar.dart';
 import 'package:dalel/core/helper/spacing.dart';
-import 'package:dalel/core/routing/app_router.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
