@@ -7,10 +7,11 @@ class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     super.key,
     required this.label,
-    required this.onPressed,
+    required this.onPressed, this.color,
   });
   final String label;
   final void Function()? onPressed;
+  final Color? color; 
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +20,7 @@ class CustomTextButton extends StatelessWidget {
           style: ButtonStyle(
             minimumSize: WidgetStatePropertyAll(Size(343.w, 56.h)),
             backgroundColor:
-                const WidgetStatePropertyAll(AppColors.primaryColor),
+                 WidgetStatePropertyAll(color ?? AppColors.primaryColor),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),

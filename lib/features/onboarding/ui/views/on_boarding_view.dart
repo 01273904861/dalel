@@ -1,12 +1,12 @@
 import 'package:dalel/core/helper/spacing.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/features/onboarding/data/models/onboarding_model.dart';
-import 'package:dalel/features/onboarding/ui/custom_page_view_builder.dart';
+import 'package:dalel/features/onboarding/ui/widgets/custom_page_view_builder.dart';
 import 'package:dalel/features/onboarding/ui/widgets/login_now_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'ui/widgets/custom_onboarding_button.dart';
+import '../widgets/custom_onboarding_button.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});

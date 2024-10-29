@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AppBarSection extends StatelessWidget {
-  const AppBarSection({super.key});
+class LoginBannerWidget extends StatelessWidget {
+  const LoginBannerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

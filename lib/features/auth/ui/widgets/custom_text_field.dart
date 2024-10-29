@@ -9,19 +9,31 @@ class CustomTextField extends StatelessWidget {
     this.borderRadius,
     this.inputFontSize,
     this.borderColor,
+    required this.controller,
   });
   final String labelText;
   final double? borderRadius;
   final double? inputFontSize;
   final Color? borderColor;
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'this field is required';
+        } else {
+          return null;
+        }
+      },
+      controller: controller,
       style: AppTextStyle.popins400Black24
           .copyWith(fontSize: inputFontSize?.sp ?? 15.sp),
       decoration: InputDecoration(
         enabledBorder: customInputBorder(),
         focusedBorder: customInputBorder(),
+        errorBorder: customInputBorder(),
         labelText: labelText,
         labelStyle: AppTextStyle.ppoins500BGrey17,
       ),
@@ -41,6 +53,7 @@ class CustomPassowrdTextField extends StatelessWidget {
     super.key,
     required this.labelText,
     required this.suffixIcon,
+    required this.controller,
     this.obsecureText,
     this.borderRadius,
     this.inputFontSize,
@@ -52,20 +65,29 @@ class CustomPassowrdTextField extends StatelessWidget {
   final Color? borderColor;
   final Widget suffixIcon;
   final bool? obsecureText;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'this field is required';
+        } else {
+          return null;
+        }
+      },
+      controller: controller,
       obscureText: obsecureText ?? false,
       style: AppTextStyle.popins400Black24
           .copyWith(fontSize: inputFontSize?.sp ?? 15.sp),
       decoration: InputDecoration(
+        errorBorder: customInputBorder(),
         enabledBorder: customInputBorder(),
         focusedBorder: customInputBorder(),
         labelText: labelText,
         labelStyle: AppTextStyle.ppoins500BGrey17,
         suffixIcon: suffixIcon,
         isDense: true,
-        
       ),
     );
   }
