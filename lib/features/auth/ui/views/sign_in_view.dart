@@ -1,11 +1,10 @@
 import 'package:dalel/core/functions/show_snack_bar.dart';
 import 'package:dalel/core/helper/spacing.dart';
-import 'package:dalel/core/routing/app_router.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_state.dart';
+
+import 'package:dalel/features/auth/data/cubit/cubit/sign_in_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/login_banner_widget.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_log_in_form.dart';
 import 'package:dalel/features/auth/ui/widgets/dont_have_an_account.dart';
@@ -18,18 +17,24 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<AuthCubit>();
+    final auth = context.read<SigninCubit>();
     return SafeArea(
       child: Scaffold(
-        body: BlocConsumer<AuthCubit, 
-        AuthState>(
+        body: BlocConsumer<SigninCubit, SignInState>(
           listener: (context, state) {
-          if(state is SignInFailureState){
-            showSnackBar(context, state.errorMessage);
-          }
-          else if(state is SignInSuccessState){
-              showSnackBar(context, 'login sucess');
-          }
+            if (state is SignInFailureState) {
+              showToast(state.errorMessage);
+            } else if (state is SignInSuccessState) {
+              if (auth.checKVerification()) {
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+                auth.signInEmailContoller.clear();
+                auth.signInPasswordController.clear();
+                showToast('login sucess');
+              } else {
+                showToast('please verify your email');
+              }
+            }
           },
           builder: (context, state) {
             return CustomScrollView(
@@ -46,15 +51,32 @@ class SignInView extends StatelessWidget {
                 SliverToBoxAdapter(child: verticalSpacing(20.h)),
                 SliverToBoxAdapter(
                     child: CustomLogInForm(
-                  signInFormKey: context.read<AuthCubit>().signInFormKey,
+                  signInFormKey: auth.signInFormKey,
+                )),
+                SliverToBoxAdapter(
+                    child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(Routes.forgotPassword);
+                    },
+                    child: Text(
+                      'Forgot password ? ',
+                      style:
+                          AppTextStyle.ppoins600Black28.copyWith(fontSize: 13),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
                 )),
                 SliverToBoxAdapter(child: verticalSpacing(30)),
                 SliverToBoxAdapter(
-                  child: CustomTextButton(
-                      label: 'Sign In',
-                      onPressed: () {
-                        checkSignInValidMethod(auth);
-                      }),
+                  child: state is SignInLoadingState
+                      ? const Center(child: CircularProgressIndicator())
+                      : CustomTextButton(
+                          label: 'Sign In',
+                          onPressed: () {
+                            checkSignInValidMethod(auth);
+                          }),
                 ),
                 SliverToBoxAdapter(child: verticalSpacing(10)),
                 SliverToBoxAdapter(
@@ -80,11 +102,11 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  void checkSignInValidMethod(AuthCubit auth) {
-       if (auth.signInFormKey.currentState!.validate()) {
+  void checkSignInValidMethod(SigninCubit auth) {
+    if (auth.signInFormKey.currentState!.validate()) {
       auth.signIn();
-      auth.signInEmailContoller.clear();
-      auth.signInPasswordController.clear();
+    } else {
+      showToast('check email and password');
     }
   }
 }

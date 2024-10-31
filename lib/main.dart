@@ -10,7 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-checkLogingStates();
+  checkLogingStates();
   runApp(DalelApp(
     appRouter: AppRouter(),
   ));

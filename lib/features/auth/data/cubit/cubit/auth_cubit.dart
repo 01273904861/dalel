@@ -7,13 +7,11 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthIntialState());
 
   TextEditingController signUpEmailContoller = TextEditingController();
-  TextEditingController signInEmailContoller = TextEditingController();
   TextEditingController signUpPasswordController = TextEditingController();
-  TextEditingController signInPasswordController = TextEditingController();
-  TextEditingController signUpfirstNameController = TextEditingController();
+  TextEditingController signUpFirstNameController = TextEditingController();
   TextEditingController signUpLastNameController = TextEditingController();
-  final signInFormKey = GlobalKey<FormState>();
-  final signUpFormKey = GlobalKey<FormState>();
+
+  final GlobalKey<FormState> signUpFormKey = GlobalKey();
   bool termsAndConditionValue = false;
   void signUp() async {
     try {
@@ -22,6 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: signUpEmailContoller.text,
         password: signUpPasswordController.text,
       );
+      verifyUser();
       emit(SignUpSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -38,29 +37,13 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void signIn() async {
-    try {
-      emit(SignInLoadingState());
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: signInEmailContoller.text,
-        password: signInPasswordController.text,
-      );
-      emit(SignInSuccessState());
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        emit(SignInFailureState(errorMessage: 'No user found for that email'));
-      } else if (e.code == 'wrong-password') {
-        emit(SignInFailureState(
-            errorMessage: 'Wrong password provided for that user'));
-      } else {
-        emit(SignInFailureState(errorMessage: 'check email and password'));
-      }
-    } catch (e) {
-      emit(SignInFailureState(errorMessage: 'check email and password'));
-    }
+  Future<void> verifyUser() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   void termsAndConditionChanges() {
     emit(TermsAndConditionChangedState());
   }
 }
+
+//abdelrahman982004@gmail.com
