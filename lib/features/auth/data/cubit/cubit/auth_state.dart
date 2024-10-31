@@ -1,4 +1,3 @@
-import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
 
 abstract class AuthState {}
 
