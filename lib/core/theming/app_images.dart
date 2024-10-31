@@ -70,6 +70,10 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String imagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for imagesPassword
+  /// assets/images/password.png
+  static const String imagesPassword = "assets/images/password.png";
+
   /// Assets for imagesPerson
   /// assets/images/Person.png
   static const String imagesPerson = "assets/images/Person.png";

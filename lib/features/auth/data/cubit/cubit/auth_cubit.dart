@@ -12,8 +12,9 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController signInPasswordController = TextEditingController();
   TextEditingController signUpfirstNameController = TextEditingController();
   TextEditingController signUpLastNameController = TextEditingController();
-  final signInFormKey = GlobalKey<FormState>();
-  final signUpFormKey = GlobalKey<FormState>();
+
+  final GlobalKey<FormState> signInFormKey = GlobalKey();
+  final GlobalKey<FormState> signUpFormKey = GlobalKey();
   bool termsAndConditionValue = false;
   void signUp() async {
     try {
@@ -22,6 +23,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: signUpEmailContoller.text,
         password: signUpPasswordController.text,
       );
+      //  verifyUser();
       emit(SignUpSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -36,6 +38,10 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(SignUpFailureState(errorMessage: 'check email and password'));
     }
+  }
+
+  Future<void> verifyUser() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   void signIn() async {
@@ -63,4 +69,8 @@ class AuthCubit extends Cubit<AuthState> {
   void termsAndConditionChanges() {
     emit(TermsAndConditionChangedState());
   }
+
+
 }
+
+//abdelrahman982004@gmail.com

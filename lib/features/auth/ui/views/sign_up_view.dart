@@ -28,7 +28,7 @@ class SignUpView extends StatelessWidget {
             return CustomScrollView(
               slivers: [
                 const SliverToBoxAdapter(
-                  child: WelcomeSection(),
+                  child: WelcomeSection(label: 'Welcome !'),
                 ),
                 SliverToBoxAdapter(
                   child: CustomSignUpForm(

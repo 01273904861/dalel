@@ -20,15 +20,15 @@ class SignInView extends StatelessWidget {
     final auth = context.read<AuthCubit>();
     return SafeArea(
       child: Scaffold(
-        body: BlocConsumer<AuthCubit, 
-        AuthState>(
+        body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
-          if(state is SignInFailureState){
-            showSnackBar(context, state.errorMessage);
-          }
-          else if(state is SignInSuccessState){
+            auth.signInEmailContoller.clear();
+            auth.signInPasswordController.clear();
+            if (state is SignInFailureState) {
+              showSnackBar(context, state.errorMessage);
+            } else if (state is SignInSuccessState) {
               showSnackBar(context, 'login sucess');
-          }
+            }
           },
           builder: (context, state) {
             return CustomScrollView(
@@ -46,6 +46,21 @@ class SignInView extends StatelessWidget {
                 SliverToBoxAdapter(
                     child: CustomLogInForm(
                   signInFormKey: context.read<AuthCubit>().signInFormKey,
+                )),
+                SliverToBoxAdapter(
+                    child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(Routes.forgotPassword);
+                    },
+                    child: Text(
+                      'Forgot password ? ',
+                      style:
+                          AppTextStyle.ppoins600Black28.copyWith(fontSize: 13),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
                 )),
                 SliverToBoxAdapter(child: verticalSpacing(30)),
                 SliverToBoxAdapter(
@@ -80,10 +95,8 @@ class SignInView extends StatelessWidget {
   }
 
   void checkSignInValidMethod(AuthCubit auth) {
-       if (auth.signInFormKey.currentState!.validate()) {
+    if (auth.signInFormKey.currentState!.validate()) {
       auth.signIn();
-      auth.signInEmailContoller.clear();
-      auth.signInPasswordController.clear();
     }
   }
 }
