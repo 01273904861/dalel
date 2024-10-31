@@ -5,7 +5,7 @@ import 'package:dalel/core/theming/app_images.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
 
-import 'package:dalel/features/auth/data/cubit/cubit/forgot_password_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/reset_password_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_text_field.dart';
 import 'package:dalel/features/auth/ui/widgets/welcome_section.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class ForgotPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ForgotPasswordCubit, ResetPasswordState>(
+    return BlocConsumer<RsetPasswordCubit, ResetPasswordState>(
         listener: (context, state) {
       if (state is ResetPasswordSucessState) {
         Navigator.of(context).pushNamed(Routes.logIn);
@@ -28,7 +28,7 @@ class ForgotPasswordView extends StatelessWidget {
         print(state.errorMessage);
       }
     }, builder: (context, state) {
-      final auth = context.read<ForgotPasswordCubit>();
+      final auth = context.read<RsetPasswordCubit>();
       return Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),

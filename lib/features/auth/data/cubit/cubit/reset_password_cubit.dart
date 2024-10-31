@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-part 'forgot_password_state.dart';
+part 'reset_password_state.dart';
 
-class ForgotPasswordCubit extends Cubit<ResetPasswordState> {
-  ForgotPasswordCubit() : super(ResetPasswordInitial());
+class RsetPasswordCubit extends Cubit<ResetPasswordState> {
+  RsetPasswordCubit() : super(ResetPasswordInitial());
   TextEditingController resetPasswordEmailContoller = TextEditingController();
   //resetPasswordFormKey
 

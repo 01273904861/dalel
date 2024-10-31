@@ -1,5 +1,5 @@
 import 'package:dalel/core/helper/spacing.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +17,7 @@ class _CustomFormState extends State<CustomLogInForm> {
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.read<SigninCubit>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Form(
@@ -24,11 +25,11 @@ class _CustomFormState extends State<CustomLogInForm> {
           child: Column(
             children: [
               CustomTextField(
-                  controller: context.read<AuthCubit>().signInEmailContoller,
+                  controller: auth.signInEmailContoller,
                   labelText: 'email address'),
               verticalSpacing(20),
               CustomPassowrdTextField(
-                controller: context.read<AuthCubit>().signInPasswordController,
+                controller: auth.signInPasswordController,
                 labelText: 'password',
                 obsecureText: obsecureText,
                 suffixIcon: GestureDetector(

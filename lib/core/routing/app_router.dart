@@ -1,5 +1,6 @@
 import 'package:dalel/core/routing/routes.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/forgot_password_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/reset_password_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
 import 'package:dalel/features/auth/ui/views/forgot_passowrd.dart';
 import 'package:dalel/features/auth/ui/views/sign_in_view.dart';
 import 'package:dalel/features/auth/ui/views/sign_up_view.dart';
@@ -17,7 +18,10 @@ class AppRouter {
         });
       case Routes.logIn:
         return MaterialPageRoute(builder: (context) {
-          return const SignInView();
+          return BlocProvider(
+            create: (context) => SigninCubit(),
+            child: const SignInView(),
+          );
         });
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (context) {
@@ -30,7 +34,7 @@ class AppRouter {
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (context) {
           return BlocProvider(
-            create: (context) => ForgotPasswordCubit(),
+            create: (context) => RsetPasswordCubit(),
             child: const ForgotPasswordView(),
           );
         });

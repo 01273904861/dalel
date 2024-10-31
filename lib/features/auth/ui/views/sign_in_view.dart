@@ -3,8 +3,8 @@ import 'package:dalel/core/helper/spacing.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_state.dart';
+
+import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/login_banner_widget.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_log_in_form.dart';
 import 'package:dalel/features/auth/ui/widgets/dont_have_an_account.dart';
@@ -17,17 +17,17 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<AuthCubit>();
+    final auth = context.read<SigninCubit>();
     return SafeArea(
       child: Scaffold(
-        body: BlocConsumer<AuthCubit, AuthState>(
+        body: BlocConsumer<SigninCubit, SignInState>(
           listener: (context, state) {
-            auth.signInEmailContoller.clear();
-            auth.signInPasswordController.clear();
             if (state is SignInFailureState) {
               showSnackBar(context, state.errorMessage);
             } else if (state is SignInSuccessState) {
               showSnackBar(context, 'login sucess');
+              auth.signInEmailContoller.clear();
+              auth.signInPasswordController.clear();
             }
           },
           builder: (context, state) {
@@ -45,7 +45,7 @@ class SignInView extends StatelessWidget {
                 SliverToBoxAdapter(child: verticalSpacing(20.h)),
                 SliverToBoxAdapter(
                     child: CustomLogInForm(
-                  signInFormKey: context.read<AuthCubit>().signInFormKey,
+                  signInFormKey: auth.signInFormKey,
                 )),
                 SliverToBoxAdapter(
                     child: Padding(
@@ -94,9 +94,9 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  void checkSignInValidMethod(AuthCubit auth) {
+  void checkSignInValidMethod(SigninCubit auth) {
     if (auth.signInFormKey.currentState!.validate()) {
-      auth.signIn();
+        auth.signIn();
     }
   }
 }
