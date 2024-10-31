@@ -31,4 +31,5 @@ class SigninCubit extends Cubit<SignInState> {
       emit(SignInFailureState(errorMessage: 'check email and password'));
     }
   }
+    bool checKVerification()=>  FirebaseAuth.instance.currentUser!.emailVerified;
 }

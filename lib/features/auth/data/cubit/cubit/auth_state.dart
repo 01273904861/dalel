@@ -1,3 +1,5 @@
+import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
+
 abstract class AuthState {}
 
 class AuthIntialState extends AuthState {}
@@ -13,6 +15,12 @@ class SignUpFailureState extends AuthState {
 }
 
 
+class VerifyEmailLoadingState extends AuthState{}
+class VerifyEmailSucessState extends AuthState{}
+class VerifyEmailFailureState extends AuthState{
+final String errorMessage;
 
+  VerifyEmailFailureState({required this.errorMessage});
+}
 class TermsAndConditionChangedState extends AuthState {}
 

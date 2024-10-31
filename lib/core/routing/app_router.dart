@@ -1,6 +1,6 @@
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/reset_password_cubit.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/sign_in_cubit.dart';
 import 'package:dalel/features/auth/ui/views/reset_passowrd_view.dart';
 import 'package:dalel/features/auth/ui/views/sign_in_view.dart';
 import 'package:dalel/features/auth/ui/views/sign_up_view.dart';

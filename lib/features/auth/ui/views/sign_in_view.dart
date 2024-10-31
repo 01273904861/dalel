@@ -4,7 +4,7 @@ import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
 
-import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/sign_in_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/login_banner_widget.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_log_in_form.dart';
 import 'package:dalel/features/auth/ui/widgets/dont_have_an_account.dart';
@@ -25,11 +25,15 @@ class SignInView extends StatelessWidget {
             if (state is SignInFailureState) {
               showToast(state.errorMessage);
             } else if (state is SignInSuccessState) {
-              showToast('login sucess');
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
-              auth.signInEmailContoller.clear();
-              auth.signInPasswordController.clear();
+              if (auth.checKVerification()) {
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+                auth.signInEmailContoller.clear();
+                auth.signInPasswordController.clear();
+                showToast('login sucess');
+              } else {
+                showToast('please verify your email');
+              }
             }
           },
           builder: (context, state) {

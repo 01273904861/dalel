@@ -1,5 +1,5 @@
 import 'package:dalel/core/helper/spacing.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/signin_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/sign_in_cubit.dart';
 import 'package:dalel/features/auth/ui/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

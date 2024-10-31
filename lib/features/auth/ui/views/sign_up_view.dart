@@ -23,8 +23,9 @@ class SignUpView extends StatelessWidget {
               showToast(state.errorMessage);
             } else if (state is SignUpSuccessState) {
               showToast('User signed up succesfully');
+
               Navigator.of(context)
-                  .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+                  .pushNamedAndRemoveUntil(Routes.logIn, (_) => false);
               auth.signUpEmailContoller.clear();
               auth.signUpLastNameController.clear();
               auth.signUpPasswordController.clear();
