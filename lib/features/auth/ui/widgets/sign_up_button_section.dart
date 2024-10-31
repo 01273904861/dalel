@@ -1,3 +1,4 @@
+import 'package:dalel/core/functions/show_snack_bar.dart';
 import 'package:dalel/core/helper/spacing.dart';
 import 'package:dalel/core/widgets/custom_text_button.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
@@ -20,11 +21,15 @@ class SignUpButtonSection extends StatelessWidget {
             const TermsAndConditionsWidget(),
             verticalSpacing(60),
             auth.termsAndConditionValue
-                ? CustomTextButton(
-                    label: 'Sign Up',
-                    onPressed: () {
-                      checkSignUpValideMethod(auth);
-                    })
+                ? state is SignUpLoadingState
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : CustomTextButton(
+                        label: 'Sign Up',
+                        onPressed: () {
+                          checkSignUpValideMethod(auth);
+                        })
                 : CustomTextButton(
                     label: 'Sign Up', color: Colors.grey, onPressed: () {}),
           ],
@@ -36,10 +41,8 @@ class SignUpButtonSection extends StatelessWidget {
   void checkSignUpValideMethod(AuthCubit auth) {
     if (auth.signUpFormKey.currentState!.validate()) {
       auth.signUp();
-      auth.signUpEmailContoller.clear();
-      auth.signUpPasswordController.clear();
-      auth.signUpfirstNameController.clear();
-      auth.signUpLastNameController.clear();
+    } else {
+      showToast('Please enter fields');
     }
   }
 }

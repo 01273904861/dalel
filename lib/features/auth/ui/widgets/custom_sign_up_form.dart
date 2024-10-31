@@ -25,7 +25,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             children: [
               CustomTextField(
                   controller:
-                      context.read<AuthCubit>().signUpfirstNameController,
+                      context.read<AuthCubit>().signUpFirstNameController,
                   labelText: 'first name'),
               verticalSpacing(20),
               CustomTextField(

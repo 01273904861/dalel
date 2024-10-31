@@ -8,7 +8,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   TextEditingController signUpEmailContoller = TextEditingController();
   TextEditingController signUpPasswordController = TextEditingController();
-  TextEditingController signUpfirstNameController = TextEditingController();
+  TextEditingController signUpFirstNameController = TextEditingController();
   TextEditingController signUpLastNameController = TextEditingController();
 
   final GlobalKey<FormState> signUpFormKey = GlobalKey();
@@ -41,12 +41,9 @@ class AuthCubit extends Cubit<AuthState> {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
-
   void termsAndConditionChanges() {
     emit(TermsAndConditionChangedState());
   }
-
-
 }
 
 //abdelrahman982004@gmail.com

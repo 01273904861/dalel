@@ -23,9 +23,11 @@ class SignInView extends StatelessWidget {
         body: BlocConsumer<SigninCubit, SignInState>(
           listener: (context, state) {
             if (state is SignInFailureState) {
-              showSnackBar(context, state.errorMessage);
+              showToast(state.errorMessage);
             } else if (state is SignInSuccessState) {
-              showSnackBar(context, 'login sucess');
+              showToast('login sucess');
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
               auth.signInEmailContoller.clear();
               auth.signInPasswordController.clear();
             }
@@ -64,11 +66,13 @@ class SignInView extends StatelessWidget {
                 )),
                 SliverToBoxAdapter(child: verticalSpacing(30)),
                 SliverToBoxAdapter(
-                  child: CustomTextButton(
-                      label: 'Sign In',
-                      onPressed: () {
-                        checkSignInValidMethod(auth);
-                      }),
+                  child: state is SignInLoadingState
+                      ? const Center(child: CircularProgressIndicator())
+                      : CustomTextButton(
+                          label: 'Sign In',
+                          onPressed: () {
+                            checkSignInValidMethod(auth);
+                          }),
                 ),
                 SliverToBoxAdapter(child: verticalSpacing(10)),
                 SliverToBoxAdapter(
@@ -96,7 +100,9 @@ class SignInView extends StatelessWidget {
 
   void checkSignInValidMethod(SigninCubit auth) {
     if (auth.signInFormKey.currentState!.validate()) {
-        auth.signIn();
+      auth.signIn();
+    } else {
+      showToast('check email and password');
     }
   }
 }

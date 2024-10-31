@@ -1,4 +1,5 @@
 import 'package:dalel/core/functions/show_snack_bar.dart';
+import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_state.dart';
 import 'package:dalel/features/auth/ui/widgets/already_have_an_account_section.dart';
@@ -19,9 +20,15 @@ class SignUpView extends StatelessWidget {
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is SignUpFailureState) {
-              showSnackBar(context, state.errorMessage);
+              showToast(state.errorMessage);
             } else if (state is SignUpSuccessState) {
-              showSnackBar(context, 'sign up success ');
+              showToast('User signed up succesfully');
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+              auth.signUpEmailContoller.clear();
+              auth.signUpLastNameController.clear();
+              auth.signUpPasswordController.clear();
+              auth.signUpFirstNameController.clear();
             }
           },
           builder: (context, state) {
@@ -35,7 +42,6 @@ class SignUpView extends StatelessWidget {
                     signUpFormKey: auth.signUpFormKey,
                   ),
                 ),
-                
                 const SliverToBoxAdapter(
                   child: SignUpButtonSection(),
                 ),
