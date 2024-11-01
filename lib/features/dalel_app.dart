@@ -14,24 +14,34 @@ class DalelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      designSize: const Size(812, 375),
       child: BlocProvider(
         create: (context) => AuthCubit(),
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: appRouter.onGenerateRoute,
-            initialRoute: getInitialRouteMethod()),
+            initialRoute:getInitialRouteMethod()),
       ),
     );
   }
 }
 
-
 String getInitialRouteMethod() {
-  return CacheHelper().getData(key: CacheConstants.visitedOnBoarding)
-      ? FirebaseAuth.instance.currentUser == null
-          ? Routes.logIn
-          : FirebaseAuth.instance.currentUser!.emailVerified
-              ? Routes.homePage
-              : Routes.logIn
-      : Routes.onBoarding;
+  if (CacheHelper().getData(key: CacheConstants.visitedOnBoarding)) {
+    if (FirebaseAuth.instance.currentUser == null ||
+        !FirebaseAuth.instance.currentUser!.emailVerified) {
+      return Routes.logIn;
+    } else {
+      return Routes.homePage;
+    }
+  } else {
+    return Routes.onBoarding;
+  }
+  // return CacheHelper().getData(key: CacheConstants.visitedOnBoarding)
+  //     ? FirebaseAuth.instance.currentUser == null
+  //         ? Routes.logIn
+  //         : FirebaseAuth.instance.currentUser!.emailVerified
+  //             ? Routes.homePage
+  //             : Routes.logIn
+  //     : Routes.onBoarding;
 }

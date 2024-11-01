@@ -15,7 +15,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      padding:  EdgeInsets.symmetric(horizontal: 12.0.w),
       child: TextButton(
           style: ButtonStyle(
             minimumSize: WidgetStatePropertyAll(Size(343.w, 56.h)),
@@ -23,7 +23,7 @@ class CustomTextButton extends StatelessWidget {
                  WidgetStatePropertyAll(color ?? AppColors.primaryColor),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16.sp),
               ),
             ),
           ),

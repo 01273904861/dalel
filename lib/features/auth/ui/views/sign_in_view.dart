@@ -63,7 +63,7 @@ class SignInView extends StatelessWidget {
                     child: Text(
                       'Forgot password ? ',
                       style:
-                          AppTextStyle.ppoins600Black28.copyWith(fontSize: 13),
+                          AppTextStyle.ppoins600Black28.copyWith(fontSize: 13.sp),
                       textAlign: TextAlign.right,
                     ),
                   ),
