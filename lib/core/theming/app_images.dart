@@ -18,6 +18,10 @@ class AppImages {
   /// assets/images/Dalel.png
   static const String imagesDalel = "assets/images/Dalel.png";
 
+  /// Assets for imagesGoogle
+  /// assets/images/google.png
+  static const String imagesGoogle = "assets/images/google.png";
+
   /// Assets for imagesHome
   /// assets/images/home.png
   static const String imagesHome = "assets/images/home.png";

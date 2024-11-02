@@ -1,6 +1,8 @@
 import 'package:dalel/core/routing/routes.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/reset_password_cubit.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/sign_in_cubit.dart';
+import 'package:dalel/features/auth/data/cubit/cubit/sign_in_with_google_cubit.dart';
 import 'package:dalel/features/auth/ui/views/reset_passowrd_view.dart';
 import 'package:dalel/features/auth/ui/views/sign_in_view.dart';
 import 'package:dalel/features/auth/ui/views/sign_up_view.dart';
@@ -18,8 +20,15 @@ class AppRouter {
         });
       case Routes.logIn:
         return MaterialPageRoute(builder: (context) {
-          return BlocProvider(
-            create: (context) => SigninCubit(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => SignInCubit(),
+              ),
+              BlocProvider(
+                create: (context) => SignInWithGoogleCubit(),
+              ),
+            ],
             child: const SignInView(),
           );
         });
@@ -29,7 +38,10 @@ class AppRouter {
         });
       case Routes.register:
         return MaterialPageRoute(builder: (context) {
-          return const SignUpView();
+          return BlocProvider(
+            create: (context) => AuthCubit(),
+            child: const SignUpView(),
+          );
         });
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (context) {

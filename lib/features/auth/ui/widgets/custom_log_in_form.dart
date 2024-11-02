@@ -17,7 +17,7 @@ class _CustomFormState extends State<CustomLogInForm> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<SigninCubit>();
+    final auth = context.read<SignInCubit>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Form(

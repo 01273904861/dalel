@@ -14,14 +14,10 @@ class DalelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(812, 375),
-      child: BlocProvider(
-        create: (context) => AuthCubit(),
-        child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: appRouter.onGenerateRoute,
-            initialRoute:getInitialRouteMethod()),
-      ),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: appRouter.onGenerateRoute,
+          initialRoute: Routes.onBoarding),
     );
   }
 }

@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-part 'signin_state.dart';
+part 'sign_in_state.dart';
 
-class SigninCubit extends Cubit<SignInState> {
-  SigninCubit() : super(SigninInitial());
+class SignInCubit extends Cubit<SignInState> {
+  SignInCubit() : super(SigninInitial());
 
   TextEditingController signInEmailContoller = TextEditingController();
   TextEditingController signInPasswordController = TextEditingController();
@@ -31,5 +31,15 @@ class SigninCubit extends Cubit<SignInState> {
       emit(SignInFailureState(errorMessage: 'check email and password'));
     }
   }
-    bool checKVerification()=>  FirebaseAuth.instance.currentUser!.emailVerified;
+
+  bool checKVerification() => FirebaseAuth.instance.currentUser!.emailVerified;
+
+  void signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      emit(SignOutSuccessState());
+    } on Exception catch (e) {
+      SignOutFailureState(errorMessage: e.toString());
+    }
+  }
 }
