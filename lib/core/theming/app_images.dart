@@ -26,6 +26,10 @@ class AppImages {
   /// assets/images/home.png
   static const String imagesHome = "assets/images/home.png";
 
+  /// Assets for imagesHome inactive
+  /// assets/images/home inactive.png
+  static const String imagesHomeInactive = "assets/images/home inactive.png";
+
   /// Assets for imagesHyksos
   /// assets/images/Hyksos.png
   static const String imagesHyksos = "assets/images/Hyksos.png";
@@ -82,6 +86,10 @@ class AppImages {
   /// assets/images/Person.png
   static const String imagesPerson = "assets/images/Person.png";
 
+  /// Assets for imagesPerson active
+  /// assets/images/person active.png
+  static const String imagesPersonActive = "assets/images/person active.png";
+
   /// Assets for imagesPortraitOfTheQianlong
   /// assets/images/Portrait_of_the_Qianlong.png
   static const String imagesPortraitOfTheQianlong = "assets/images/Portrait_of_the_Qianlong.png";
@@ -114,9 +122,17 @@ class AppImages {
   /// assets/images/Search.png
   static const String imagesSearch = "assets/images/Search.png";
 
+  /// Assets for imagesSearch active
+  /// assets/images/Search active.png
+  static const String imagesSearchActive = "assets/images/Search active.png";
+
   /// Assets for imagesShawn
   /// assets/images/shawn.png
   static const String imagesShawn = "assets/images/shawn.png";
+
+  /// Assets for imagesShopping cart active
+  /// assets/images/shopping cart active.png
+  static const String imagesShoppingCartActive = "assets/images/shopping cart active.png";
 
   /// Assets for imagesShoppingCart
   /// assets/images/shopping-cart.png

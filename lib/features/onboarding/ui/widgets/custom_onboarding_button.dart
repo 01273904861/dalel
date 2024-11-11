@@ -30,10 +30,11 @@ class CustomOnBoardingTextButton extends StatelessWidget {
         onPressed: () {
           index == onBoardingModels.length - 1
               ? {
+                   CacheHelper().setData(
+                     key: CacheConstants.visitedOnBoarding, value: true),
                   Navigator.pushNamedAndRemoveUntil(
                       context, Routes.register, (_) => false),
-                  CacheHelper().setData(
-                     key: CacheConstants.visitedOnBoarding, value: true)
+               
                 }
               : pageController.nextPage(
                   duration: const Duration(milliseconds: 500),

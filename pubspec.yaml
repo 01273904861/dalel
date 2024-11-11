@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.2.8
   shared_preferences: ^2.3.2
   google_sign_in: ^6.2.1
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:

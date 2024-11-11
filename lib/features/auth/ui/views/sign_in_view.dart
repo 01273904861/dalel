@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dalel/core/functions/show_functions.dart';
 import 'package:dalel/core/helper/spacing.dart';
 import 'package:dalel/core/routing/routes.dart';
@@ -22,7 +20,6 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.read<SignInCubit>();
-    final googleAuth = context.read<SignInWithGoogleCubit>();
     return SafeArea(
       child: Scaffold(
         body: BlocListener<SignInWithGoogleCubit, SignInWithGoogleState>(
@@ -32,7 +29,7 @@ class SignInView extends StatelessWidget {
               showToast(googleState.errorMessage);
             } else if (googleState is SignInWithGoogleSuccessState) {
               Navigator.of(context)
-                  .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+                  .pushNamed(Routes.homeNavBarWidget);
               showToast('Google login success');
             }
           },
@@ -43,8 +40,8 @@ class SignInView extends StatelessWidget {
                 showToast(state.errorMessage);
               } else if (state is SignInSuccessState) {
                 if (auth.checKVerification()) {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil(Routes.homePage, (_) => false);
+                   Navigator.of(context)
+                  .pushNamed(Routes.homeNavBarWidget);
                   auth.signInEmailContoller.clear();
                   auth.signInPasswordController.clear();
                   showToast('login success');

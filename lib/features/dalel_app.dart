@@ -1,11 +1,11 @@
+import 'dart:developer';
+
 import 'package:dalel/core/database/cache_constants.dart';
 import 'package:dalel/core/database/cache_helper.dart';
 import 'package:dalel/core/routing/app_router.dart';
 import 'package:dalel/core/routing/routes.dart';
-import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DalelApp extends StatelessWidget {
@@ -17,20 +17,22 @@ class DalelApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.onGenerateRoute,
-          initialRoute: Routes.onBoarding),
+          initialRoute: getInitialRouteMethod()),
     );
   }
 }
 
 String getInitialRouteMethod() {
-  if (CacheHelper().getData(key: CacheConstants.visitedOnBoarding)) {
+  if (CacheHelper().getData(key: CacheConstants.visitedOnBoarding) == true) {
+      log(CacheHelper().getData(key: CacheConstants.visitedOnBoarding).toString());
     if (FirebaseAuth.instance.currentUser == null ||
         !FirebaseAuth.instance.currentUser!.emailVerified) {
       return Routes.logIn;
     } else {
-      return Routes.homePage;
+      return Routes.homeNavBarWidget;
     }
   } else {
+     log(CacheHelper().getData(key: CacheConstants.visitedOnBoarding).toString());
     return Routes.onBoarding;
   }
   // return CacheHelper().getData(key: CacheConstants.visitedOnBoarding)
