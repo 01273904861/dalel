@@ -38,7 +38,7 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
                 TextSpan(
                     text: 'I have agree to our ',
                     style:
-                        AppTextStyle.popins400Black24.copyWith(fontSize: 13)),
+                        AppTextStyle.popins400Black24.copyWith(fontSize: 13.sp)),
                 TextSpan(
                     text: 'Terms and Conditions',
                     style: AppTextStyle.popins400Black24.copyWith(

@@ -1,3 +1,5 @@
+import 'package:dalel/core/database/cache_constants.dart';
+import 'package:dalel/core/database/cache_helper.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +14,11 @@ class LoginNowTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+                CacheHelper()
+            .setData(key: CacheConstants.visitedOnBoarding, value: true);
         Navigator.of(context)
             .pushNamedAndRemoveUntil(Routes.logIn, (_) => false);
+
       },
       child: Text(
         textAlign: TextAlign.center,

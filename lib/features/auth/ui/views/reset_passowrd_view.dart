@@ -14,7 +14,7 @@ class ResetPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 8.0.w),
         child: CustomScrollView(
           slivers: [
             const SliverToBoxAdapter(
@@ -35,10 +35,10 @@ class ResetPasswordView extends StatelessWidget {
               style: AppTextStyle.popins400Black24.copyWith(fontSize: 14.sp),
             )),
             SliverToBoxAdapter(child: verticalSpacing(30)),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: CustomResetPasswordForm()),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                  child: const CustomResetPasswordForm()),
             ),
           ],
         ),

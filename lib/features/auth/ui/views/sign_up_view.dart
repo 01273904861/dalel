@@ -1,4 +1,4 @@
-import 'package:dalel/core/functions/show_snack_bar.dart';
+import 'package:dalel/core/functions/show_functions.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/data/cubit/cubit/auth_state.dart';

@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "914072224342",
     "project_id": "dalel-57947",
-    "storage_bucket": "dalel-57947.appspot.com"
+    "storage_bucket": "dalel-57947.firebasestorage.app"
   },
   "client": [
     {
@@ -12,7 +12,20 @@
           "package_name": "com.example.dalel"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "914072224342-pnua99brn2haie2go287bi78c4miicd1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dalel",
+            "certificate_hash": "e71f3357cef1d22aa96bd8f3287a9e1d046c89e9"
+          }
+        },
+        {
+          "client_id": "914072224342-ggjm1t8ufqmel58v0484qna84e37fj0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD1RDwyXWAElqWX00GybEzOCeOW9popRzE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914072224342-ggjm1t8ufqmel58v0484qna84e37fj0o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "914072224342-462ok3fkglpuh47usjm4k32ck1hjp1sn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dalel"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,3 +1,5 @@
+import 'package:dalel/core/database/cache_constants.dart';
+import 'package:dalel/core/database/cache_helper.dart';
 import 'package:dalel/core/routing/routes.dart';
 import 'package:dalel/core/theming/app_colors.dart';
 import 'package:dalel/core/theming/app_text_style.dart';
@@ -27,8 +29,13 @@ class CustomOnBoardingTextButton extends StatelessWidget {
         ),
         onPressed: () {
           index == onBoardingModels.length - 1
-              ? Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.register, (_) => false)
+              ? {
+                   CacheHelper().setData(
+                     key: CacheConstants.visitedOnBoarding, value: true),
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Routes.register, (_) => false),
+               
+                }
               : pageController.nextPage(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,

@@ -24,8 +24,8 @@ class CustomPageViewBuilder extends StatelessWidget {
             children: [
               Image.asset(
                 onBoardingModels[i].image,
-                width: 343,
-                height: 290,
+                width: 343.w,
+                height: 290.h,
               ),
               verticalSpacing(30),
               Text(

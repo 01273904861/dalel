@@ -13,3 +13,11 @@ class SignInFailureState extends SignInState {
 
   SignInFailureState({required this.errorMessage});
 }
+
+class SignOutSuccessState extends SignInState {}
+
+class SignOutFailureState extends SignInState {
+  final String errorMessage;
+
+  SignOutFailureState({required this.errorMessage});
+}
